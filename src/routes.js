@@ -1,5 +1,5 @@
 import { wrap } from 'svelte-spa-router/wrap';
-import Loader from './components/Loader.svelte';
+import Loader from './abstract-components/Loader.svelte';
 
 export default {
   '/': wrap({

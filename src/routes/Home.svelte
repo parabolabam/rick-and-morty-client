@@ -8,9 +8,12 @@ h1 {
 </style>
 
 <script>
-import Characters from '../components/Characters.svelte';
+import Typewriter from 'svelte-typewriter';
+import Characters from '../components/Characters-module/Characters.svelte';
 </script>
 
-<h1>Hello Rick & Morty World</h1>
+<Typewriter loop interval="{200}">
+  <h1>Welcome To <mark>The</mark> Rick & Morty World</h1>
+</Typewriter>
 
 <Characters />

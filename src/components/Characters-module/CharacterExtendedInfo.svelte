@@ -2,11 +2,12 @@
 table {
   font-size: 1.5em;
   width: 100%;
+  text-align: center;
 }
 </style>
 
 <script lang="typescript">
-import { getCharacterExtendedInfo } from '../data-sources/character-extended-info.data-source';
+import { getCharacterExtendedInfo } from '../../data-sources/character-extended-info.data-source';
 
 export let characterId: string;
 

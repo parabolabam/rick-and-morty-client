@@ -1,59 +1,12 @@
 import { gql } from 'graphql-request';
+import type { Character } from '../generated/graphql';
 import { getGqlRequest } from '../services/graphql-api';
+import * as characterQuery from '../graphql/queries/character.query.graphql';
 
-export type TExtendedCharacter = {
-  id: string;
-  name: String;
-  status: String;
-  species: String;
-  type: string;
-  gender: string;
-  origin: TLocation;
-};
-
-export type TLocation = {
-  id: string;
-  name: string;
-  type: string;
-  dimension: string;
-};
-
-export type TEpisode = {
-  id: string;
-  name: string;
-  air_date: string;
-  episode: string;
-};
-
-const characterDN = gql`
-  query($id: ID!) {
-    character(id: $id) {
-      id
-      status
-      name
-      type
-      episode {
-        id
-        name
-        air_date
-        episode
-      }
-      origin {
-        id
-        name
-        type
-        dimension
-      }
-    }
-  }
-`;
-
-export function getCharacterExtendedInfo(
-  id: string
-): Promise<TExtendedCharacter> {
+export function getCharacterExtendedInfo(id: string): Promise<Character> {
   return (
     getGqlRequest()
-      ?.request<{ character: TExtendedCharacter }>(characterDN, { id })
+      ?.request<{ character: Character }>(characterQuery, { id })
       .then((responce) => responce.character) || Promise.resolve(null)
   );
 }

@@ -2,6 +2,7 @@
 .character {
   cursor: default;
   transition: all 0.3s ease-in-out;
+  margin: 1.5rem;
 }
 
 .character:hover {
@@ -30,11 +31,11 @@ figcaption {
 
 <script lang="ts">
 import { getContext } from 'svelte';
-import type { TCharacter } from '../data-sources/characters.data-source';
-import { simpleModalContextKey } from '../services/context-keys';
+import type { Character } from '../../generated/graphql';
+import { simpleModalContextKey } from '../../services/context-keys';
 import CharacterExtendedInfo from './CharacterExtendedInfo.svelte';
 
-export let character: TCharacter;
+export let character: Character;
 
 const { open } = getContext(simpleModalContextKey);
 

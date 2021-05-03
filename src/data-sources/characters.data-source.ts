@@ -1,5 +1,7 @@
 import { gql } from 'graphql-request';
+import type { Character } from '../generated/graphql';
 import { getGqlRequest } from '../services/graphql-api';
+import * as charactersQuery from '../graphql/queries/characters.query.graphql';
 
 export type TCharacterGender = 'Male' | 'Female' | null;
 
@@ -10,7 +12,7 @@ export type TCharactersParams = {
 
 export type TCharacterFitler = {
   name: string;
-  gender: TCharacterGender;
+  gender: Character['gender'];
 };
 
 export type TCharacter = {
@@ -26,27 +28,12 @@ export type TRequestResult = {
   };
 };
 
-const charactersDN = gql`
-  query($page: Int!, $filter: FilterCharacter!) {
-    characters(page: $page, filter: $filter) {
-      info {
-        count
-      }
-      results {
-        name
-        image
-        id
-      }
-    }
-  }
-`;
-
 export const getCharacters: (
   variables: TCharactersParams
-) => Promise<TCharacter[]> = (variables: TCharactersParams) => {
+) => Promise<Character[]> = (variables: TCharactersParams) => {
   return (
     getGqlRequest()
-      ?.request<TRequestResult>(charactersDN, variables)
+      ?.request<TRequestResult>(charactersQuery, variables)
       .then((responce: TRequestResult) => responce.characters.results) ||
     Promise.resolve([])
   );

@@ -15,9 +15,13 @@ main {
 
 <script lang="ts">
 import Router from 'svelte-spa-router';
+import Modal from 'svelte-simple-modal';
 import routes from './routes';
 </script>
 
-<main>
-  <Router routes="{routes}" />
-</main>
+<!-- to provide context -->
+<Modal>
+  <main>
+    <Router routes="{routes}" />
+  </main>
+</Modal>
