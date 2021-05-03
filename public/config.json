@@ -1,0 +1,7 @@
+{
+  "rickAndMortyApi": {
+    "grapghqlEndpoint": "https://rickandmortyapi.com/graphql",
+    "restEndpoint": "https://rickandmortyapi.com/api",
+    "headers": {}
+  }
+}
