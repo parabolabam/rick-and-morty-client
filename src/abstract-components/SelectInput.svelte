@@ -6,8 +6,11 @@ export let value = '';
 export let options: TSelectOption[];
 </script>
 
-<select name="{name}" bind:value>
-  {#each options as option}
-    <option value="{option.value}">{option.text}</option>
-  {/each}
-</select>
+<label>
+  <slot />
+  <select name="{name}" bind:value>
+    {#each options as option}
+      <option value="{option.value}">{option.text}</option>
+    {/each}
+  </select>
+</label>

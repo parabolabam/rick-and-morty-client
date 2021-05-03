@@ -2,4 +2,7 @@
 export let value: string = '';
 </script>
 
-<input bind:value type="text" />
+<label>
+  <slot />
+  <input bind:value type="text" />
+</label>

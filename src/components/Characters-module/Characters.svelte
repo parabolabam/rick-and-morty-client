@@ -38,9 +38,13 @@ $: characters = getCharacters({
 </script>
 
 <div class="filters">
-  <NumberInput bind:value="{page}" max="{Number.MAX_SAFE_INTEGER}" min="{1}" />
-  <TextInput bind:value="{nameFilter}" />
-  <SelectInput name="genders" bind:value="{gender}" options="{genderOptions}" />
+  <NumberInput bind:value="{page}" max="{Number.MAX_SAFE_INTEGER}" min="{1}">
+    Page
+  </NumberInput>
+  <TextInput bind:value="{nameFilter}">Character Name</TextInput>
+  <SelectInput name="genders" bind:value="{gender}" options="{genderOptions}">
+    Character Gender
+  </SelectInput>
 </div>
 
 {#await characters}

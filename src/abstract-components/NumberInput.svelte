@@ -4,4 +4,7 @@ export let max = 0;
 export let min = Infinity;
 </script>
 
-<input bind:value type="number" min="{min}" max="{max}" />
+<label>
+  <slot />
+  <input bind:value type="number" min="{min}" max="{max}" />
+</label>
