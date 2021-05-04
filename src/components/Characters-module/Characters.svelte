@@ -7,6 +7,8 @@
 
 .filters {
   padding: 1rem;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
 
@@ -14,14 +16,14 @@
 import Loader from '../../abstract-components/Loader.svelte';
 import NumberInput from '../../abstract-components/NumberInput.svelte';
 import SelectInput from '../../abstract-components/SelectInput.svelte';
-import TextInput from '../../abstract-components/TextInput.svelte';
+import Input from '../../abstract-components/Input.svelte';
 import { getCharacters } from '../../data-sources/characters.data-source';
 import type { Character } from '../../generated/graphql';
 import NotFound from '../../routes/NotFound.svelte';
 import CharacterComponent from './Character.svelte';
 
 let page = 1;
-let nameFilter: string;
+let nameFilter = '';
 let gender: Character['gender'] = 'Male';
 
 const genderOptions: { value: Character['gender']; text: string }[] = [
@@ -41,7 +43,7 @@ $: characters = getCharacters({
   <NumberInput bind:value="{page}" max="{Number.MAX_SAFE_INTEGER}" min="{1}">
     Page
   </NumberInput>
-  <TextInput bind:value="{nameFilter}">Character Name</TextInput>
+  <Input bind:value="{nameFilter}">Character Name</Input>
   <SelectInput name="genders" bind:value="{gender}" options="{genderOptions}">
     Character Gender
   </SelectInput>

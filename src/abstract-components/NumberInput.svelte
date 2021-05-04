@@ -1,7 +1,7 @@
 <script lang="ts">
 export let value = 0;
-export let max = 0;
-export let min = Infinity;
+export let max = Infinity;
+export let min = 0;
 </script>
 
 <label>

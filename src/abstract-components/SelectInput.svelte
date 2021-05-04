@@ -10,7 +10,9 @@ export let options: TSelectOption[];
   <slot />
   <select name="{name}" bind:value>
     {#each options as option}
-      <option value="{option.value}">{option.text}</option>
+      <option value="{option.value}">
+        <slot name="option">{option.text}</slot>
+      </option>
     {/each}
   </select>
 </label>
