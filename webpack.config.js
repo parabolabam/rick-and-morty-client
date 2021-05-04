@@ -76,8 +76,8 @@ module.exports = {
     https: prod
       ? false
       : {
-          key: fs.readFileSync('/home/vsorokin/localhost.key'),
-          cert: fs.readFileSync('/home/vsorokin/localhost.crt'),
+          key: fs.readFileSync('localhost.key'),
+          cert: fs.readFileSync('localhost.crt'),
         },
   },
 };
