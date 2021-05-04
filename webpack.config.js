@@ -73,9 +73,11 @@ module.exports = {
   devtool: prod ? false : 'source-map',
   devServer: {
     hot: true,
-    https: {
-      key: fs.readFileSync('/home/vsorokin/localhost.key'),
-      cert: fs.readFileSync('/home/vsorokin/localhost.crt'),
-    },
+    https: prod
+      ? false
+      : {
+          key: fs.readFileSync('/home/vsorokin/localhost.key'),
+          cert: fs.readFileSync('/home/vsorokin/localhost.crt'),
+        },
   },
 };
