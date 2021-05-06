@@ -1,5 +1,5 @@
-export function debounce(
-  callable: (...args: any[]) => any,
+export function debounce<T>(
+  callable: (...args: any[]) => T,
   debounceTime: number
 ) {
   let timer;

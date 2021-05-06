@@ -38,7 +38,6 @@ import CharacterExtendedInfo from './CharacterExtendedInfo.svelte';
 export let character: Character;
 
 const { open } = getContext(simpleModalContextKey);
-
 const showCharacterExtendedInfo = () => {
   open(CharacterExtendedInfo, { characterId: character.id });
 };
